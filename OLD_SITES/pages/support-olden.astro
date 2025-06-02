@@ -1,0 +1,74 @@
+---
+import nicole from '../assets/nicole.png';
+import ari from '../assets/ari.png';
+---
+<title>Support</title>
+<meta charset="UTF-8" />
+
+<style>
+  body {background-color: #000000; color: #FFFFFF;}
+  form, label[type="text"] {
+  color: white;
+}
+
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+#container {
+  display: flex;
+  justify-content: center;   /* horizontal center */
+  align-items: center;       /* vertical center */
+  height: 100vh;             /* fill full viewport height */
+}
+
+.image-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+  .background-img {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    object-fit: cover;
+    z-index: 0;
+    opacity: 0.3; /* Optional: make it more subtle */
+  }
+</style>
+
+
+<div id="container">
+  <form>
+    <main>
+    <label for="nameo">Name (optional)</label><br>
+    <input type="text" id="nameo" name="nameo" placeholder="Name"><br><br>
+    <label for="inquiry">Describe your issue:</label><br>
+    <input type="text" id="inquiry" name="inquiry" placeholder="Describe here..."><br><br>
+    <label for="platform">Platform:</label><br>
+    <select id="platform" name="platform">
+      <option value="windows">Windows</option>
+      <option value="mac">MacOS</option>
+      <option value="linux">Linux</option>
+      <option value="freebsd">FreeBSD</option>
+      <option value="templeos">TempleOS</option>
+      <option value="other">Other</option>
+    </select><br><br>
+    <input type="submit" id="submit-action" value="Submit">
+    </main>
+  </form>
+</div>
+
+<div class="image-row">
+    <img src={nicole.src} alt="nicole" width="315" height="900">
+    <img src={ari.src} alt="ari" width="403" height="900">
+</div>
+
+  <script>
+   document.getElementById('submit-action').addEventListener('click', function(event) {
+    event.preventDefault(); // Prevents the default form submission
+    document.body.innerHTML = '<p>ok really</p> <p><a href="/home">go back</a></p>';
+    });
+  </script>

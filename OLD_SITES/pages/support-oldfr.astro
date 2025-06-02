@@ -1,0 +1,41 @@
+---
+import emily from '../assets/emily.png';
+import jecka from '../assets/jecka.png';
+---
+<title>Support</title>
+<meta charset="UTF-8" />
+
+<style>
+  body {background-color: #000000; color: #FFFFFF;}
+  form, label[type="text"] {
+  color: white;
+}
+</style>
+
+
+<div id="container">
+    <main>
+    <label for="nameo">Nom (facultatif)</label><br>
+    <input type="text" id="nameo" name="nameo" placeholder="Nom"><br><br>
+    <label for="inquiry">Décrivez votre problème:</label><br>
+    <input type="text" id="inquiry" name="inquiry" placeholder="Décrivez ici..."><br><br>
+    <label for="platform">Plateforme:</label><br>
+    <select id="platform" name="platform">
+      <option value="windows">Windows</option>
+      <option value="mac">MacOS</option>
+      <option value="linux">Linux</option>
+      <option value="freebsd">FreeBSD</option>
+      <option value="templeos">TempleOS</option>
+      <option value="other">Other</option>
+    </select><br><br>
+    <input type="submit" id="submit-action" value="Soumettre">
+      <form>
+    </main>
+  </div>
+
+  <script>
+   document.getElementById('submit-action').addEventListener('click', function(event) {
+    event.preventDefault(); // Prevents the default form submission
+    document.body.innerHTML = '<p>ok vraiment</p> <p><a href="/accueil">retour</a></p>';
+    });
+  </script>

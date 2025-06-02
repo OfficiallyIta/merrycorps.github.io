@@ -1,0 +1,129 @@
+---
+import nicole from '../assets/nicole.png';
+import ari from '../assets/ari.png';
+---
+<title>Support</title>
+<meta charset="UTF-8" />
+
+<style>
+  body {
+    background-color: #000;
+    color: #fff;
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+    font-family: sans-serif;
+  }
+
+  #container-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+  }
+
+  .background-img {
+    position: absolute;
+    bottom: 0;
+    object-fit: cover;
+    z-index: 0;
+    opacity: 1; /* Optional: make it more subtle */
+  }
+
+  .background-img.left {
+    left: 0;
+  }
+
+  .background-img.right {
+    right: 0;
+  }
+
+  #container {
+    position: relative;
+    z-index: 1; /* ensure it's on top of the background images */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  form {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 2rem;
+    border-radius: 10px;
+    border: 8px solid #444;
+
+  }
+
+  input, select {
+    width: 100%;
+    padding: 0.5rem;
+    margin-top: 0.3rem;
+    background: #111;
+    border: 1px solid #444;
+    color: #fff;
+    border-radius: 5px;
+  }
+
+  label {
+    display: block;
+    margin-top: 1rem;
+  }
+
+  #submit-action {
+    margin-top: 1.5rem;
+    background: #333;
+    cursor: pointer;
+  }
+</style>
+
+<div id="container-wrapper">
+  <!-- Background Images -->
+  <img src={nicole.src} alt="nicole" class="background-img left" width="315" height="900">
+  <img src={ari.src} alt="ari" class="background-img right" width="403" height="900">
+
+  <!-- Form Container -->
+  <div id="container">
+    <form>
+      <main>
+        <label for="nameo">Name (optional)</label>
+        <input type="text" id="nameo" name="nameo" placeholder="Name">
+
+        <label for="inquiry">Describe your issue:</label>
+        <input type="text" id="inquiry" name="inquiry" placeholder="Describe here...">
+
+        <label for="platform">Platform:</label>
+        <select id="platform" name="platform">
+          <option value="windows">Windows</option>
+          <option value="mac">MacOS</option>
+          <option value="linux">Linux</option>
+          <option value="freebsd">FreeBSD</option>
+          <option value="templeos">TempleOS</option>
+          <option value="other">Other</option>
+        </select>
+
+        <input type="submit" id="submit-action" value="Submit">
+      </main>
+    </form>
+  </div>
+</div>
+
+<script>
+  document.getElementById('submit-action').addEventListener('click', function(event) {
+    event.preventDefault();
+    document.body.innerHTML = `
+      <div style="
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+        color: white;
+        font-family: sans-serif;
+        text-align: center;
+      ">
+        <p>ok really</p>
+        <p><a href="/home">go back</a></p>
+      </div>
+    `;
+  });
+</script>
